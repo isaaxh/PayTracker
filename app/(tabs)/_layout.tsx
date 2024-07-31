@@ -33,15 +33,14 @@ export default function TabLayout() {
           backgroundColor:
             /* Colors[colorScheme === "dark" ? "dark" : "light"].background, */
             colorScheme.colorScheme === "dark"
-              ? Colors.dark.background
-              : Colors.light.background,
-          /* "#ffffff", */
+              ? Colors.dark.backgroundSecondary
+              : Colors.light.backgroundSecondary,
           borderTopStartRadius: 25,
           borderTopEndRadius: 25,
           borderColor:
             colorScheme.colorScheme === "dark"
-              ? Colors.dark.background
-              : Colors.light.background,
+              ? Colors.dark.backgroundSecondary
+              : Colors.light.backgroundSecondary,
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",

@@ -8,7 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 function HomeTab() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
-    <SafeAreaView className="bg-bgColor dark:bg-zinc-900 flex-1 items-center">
+    <SafeAreaView className="bg-bgColor dark:bg-darkBgColor flex-1 items-center">
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <HeaderHome />
       <View className="bg-transparent items-center">

@@ -11,7 +11,11 @@ module.exports = {
       colors: {
         accentColor: "#29874c",
         bgColor: "#f2f5f6",
-        darkBgColor: "#2A3B47",
+        bgSecondaryColor: "#fffefe",
+        tintLight: "#a0b3c8",
+        darkBgColor: "#18181b",
+        darkBgSecondaryColor: "#27272a",
+        tintDark: "#d4d4d4",
       },
     },
   },
