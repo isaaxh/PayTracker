@@ -10,7 +10,7 @@ type LinearGradViewProps = {
 const LinearGradView = ({ children }: LinearGradViewProps) => {
   return (
     <LinearGradient
-      className="rounded-2xl py-7 px-4 items-center gap-1"
+      className="rounded-2xl py-7 px-4 items-center gap-y-2"
       style={GlobalStyles.shadow}
       colors={["#2bace3", "#ce68f7", "#f9907f"]}
       start={{ x: 0, y: 0 }}
