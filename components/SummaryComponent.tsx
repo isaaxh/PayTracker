@@ -16,6 +16,7 @@ const SummaryComponent = ({ label, amount }: SummaryComponentProps) => {
           name={label === "Income" ? "arrow up" : "arrow down"}
           variant="Linear"
           color={label === "Income" ? "#a3e635" : "#ef4444"}
+          size={20}
         />
       </View>
       <View className="items-center">

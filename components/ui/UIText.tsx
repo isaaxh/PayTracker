@@ -23,6 +23,7 @@ const textVariants = {
     header3: ["text-lg font-medium"], // 16px
     subHeader: ["text-xs text-tintLight dark:text-tintDark"], // 16px
     subHeader2: ["text-xs text-gray-500"], // 12px
+    bodyText: ["text-xs"], // 12px
   },
 };
 

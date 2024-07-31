@@ -17,7 +17,7 @@ const TotalPayCard = () => {
           SAR {monthlyPayout.toFixed(2)}
         </UIText>
       </View>
-      <View className="flex-row w-full px-8 justify-between">
+      <View className="flex-row w-full px-4 justify-between">
         <SummaryComponent label="Income" amount={558.0} />
         <SummaryComponent label="Expenses" amount={356.0} />
       </View>
