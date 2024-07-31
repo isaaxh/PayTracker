@@ -3,6 +3,8 @@ import { Grid2 } from "iconsax-react-native";
 import { StatusUp } from "iconsax-react-native";
 import { Profile } from "iconsax-react-native";
 import { EmojiHappy } from "iconsax-react-native";
+import { ArrowUp } from "iconsax-react-native";
+import { ArrowDown } from "iconsax-react-native";
 import { ComponentProps } from "react";
 
 type IconComponentProps = {
@@ -31,6 +33,12 @@ export default function Icon({
       break;
     case "profile":
       IconComponent = Profile;
+      break;
+    case "arrow up":
+      IconComponent = ArrowUp;
+      break;
+    case "arrow down":
+      IconComponent = ArrowDown;
       break;
   }
 

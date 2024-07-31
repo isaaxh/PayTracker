@@ -18,6 +18,7 @@ module.exports = {
         darkBgColor: "#18181b",
         darkBgSecondaryColor: "#27272a",
         tintDark: "#d4d4d4",
+        bgTransparent: "#FFFFFF66",
       },
     },
   },
