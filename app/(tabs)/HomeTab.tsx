@@ -5,7 +5,7 @@ import BodyHome from "@/components/BodyHome";
 import { useColorScheme } from "nativewind";
 
 function HomeTab() {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
   return (
     <SafeAreaView className="bg-bgColor dark:bg-darkBgColor flex-1 items-center">
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />

@@ -14,6 +14,7 @@ const TransactionList = () => {
       renderItem={({ item }) => (
         <TransactionCard
           category={item.category as CategoryLabelType}
+          transactionId={item.id}
           amount={item.amount}
           date={item.date}
         />

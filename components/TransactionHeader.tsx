@@ -1,6 +1,7 @@
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import React from "react";
 import UIText from "./ui/UIText";
+import { Link } from "expo-router";
 
 const TransactionHeader = () => {
   return (
@@ -8,7 +9,11 @@ const TransactionHeader = () => {
       <UIText variant="header3" textStyles="">
         Transactions
       </UIText>
-      <UIText variant="subHeader">View All</UIText>
+      <Link href="/(transactions)/AllTransactionsScreen" asChild>
+        <TouchableOpacity>
+          <UIText variant="subHeader">View All</UIText>
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 };
