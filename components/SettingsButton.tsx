@@ -4,7 +4,7 @@ import { useColorScheme } from "nativewind";
 import Colors from "@/constants/Colors";
 import { Link } from "expo-router";
 
-const SettingsIcon = () => {
+const SettingsButton = () => {
   const { colorScheme } = useColorScheme();
   return (
     <Link href="/SettingScreen" asChild>
@@ -19,4 +19,4 @@ const SettingsIcon = () => {
   );
 };
 
-export default SettingsIcon;
+export default SettingsButton;

@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import HeaderHome from "@/components/HeaderHome";
+import HomeHeader from "@/components/HomeHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
-import BodyHome from "@/components/BodyHome";
+import HomeBody from "@/components/HomeBody";
 import { useColorScheme } from "nativewind";
 
 function HomeTab() {
@@ -9,8 +9,8 @@ function HomeTab() {
   return (
     <SafeAreaView className="bg-bgColor dark:bg-darkBgColor flex-1 items-center">
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
-      <HeaderHome />
-      <BodyHome />
+      <HomeHeader />
+      <HomeBody />
     </SafeAreaView>
   );
 }

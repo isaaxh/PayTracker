@@ -1,15 +1,14 @@
 import { View, Text, Switch } from "react-native";
 import TotalPayCard from "./TotalPayCard";
-import TransactionHistory from "./TransactionHistory";
+import TransactionHistoryFeed from "./TransactionHistoryFeed";
 
-const BodyHome = () => {
+const HomeBody = () => {
   return (
     <View className="w-full flex-1 px-6 py-4">
       <TotalPayCard />
-      <TransactionHistory />
-      {/*--------------------------------  */}
+      <TransactionHistoryFeed />
     </View>
   );
 };
 
-export default BodyHome;
+export default HomeBody;

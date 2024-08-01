@@ -4,7 +4,7 @@ import { useColorScheme } from "nativewind";
 import Colors from "@/constants/Colors";
 import { Link } from "expo-router";
 
-const ProfileIcon = () => {
+const ProfileButton = () => {
   const { colorScheme } = useColorScheme();
   return (
     <Link href="/ProfileScreen" asChild>
@@ -19,4 +19,4 @@ const ProfileIcon = () => {
   );
 };
 
-export default ProfileIcon;
+export default ProfileButton;

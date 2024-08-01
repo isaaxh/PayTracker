@@ -3,7 +3,7 @@ import React from "react";
 import TransactionHeader from "./TransactionHeader";
 import TransactionList from "./TransactionList";
 
-const TransactionHistory = () => {
+const TransactionHistoryFeed = () => {
   return (
     <View className="">
       <TransactionHeader />
@@ -12,4 +12,4 @@ const TransactionHistory = () => {
   );
 };
 
-export default TransactionHistory;
+export default TransactionHistoryFeed;
