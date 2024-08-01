@@ -24,7 +24,9 @@ const TransactionCard = ({ category, amount, date }: TransactionIconProps) => {
         </UIText>
       </View>
       <View className="items-end">
-        <UIText textStyles="text-sm">SAR {amount.toFixed(2)}</UIText>
+        <UIText textStyles="text-sm font-medium">
+          SAR {amount.toFixed(2)}
+        </UIText>
         <UIText textStyles="text-xs text-tintLight dark:text-tintDark">
           {date}
         </UIText>
