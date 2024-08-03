@@ -13,10 +13,10 @@ const TotalPayCard = () => {
       <Link href="/StatsTab" asChild>
         <TouchableOpacity className="py-7 px-2 items-center gap-y-2">
           <View>
-            <UIText textStyles="text-textDark text-base">Monthly Payout</UIText>
+            <UIText alwaysDarkText={true}>Monthly Payout</UIText>
           </View>
           <View className="flex-row items-center mb-4">
-            <UIText textStyles="text-textDark text-4xl font-bold">
+            <UIText variant="headerlg" alwaysDarkText={true}>
               SAR {monthlyPayout.toFixed(2)}
             </UIText>
           </View>

@@ -20,8 +20,10 @@ const SummaryComponent = ({ label, amount }: SummaryComponentProps) => {
         />
       </View>
       <View className="items-center">
-        <UIText textStyles="text-textDark text-sm">{label}</UIText>
-        <UIText textStyles="text-textDark font-bold">
+        <UIText variant="subHeader3" alwaysDarkText={true}>
+          {label}
+        </UIText>
+        <UIText textStyles="font-bold" alwaysDarkText={true}>
           {amount.toFixed(2)}
         </UIText>
       </View>

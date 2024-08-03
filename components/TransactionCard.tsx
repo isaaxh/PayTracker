@@ -33,17 +33,11 @@ const TransactionCard = ({
       >
         <TransactionIcon category={categories[category]} />
         <View className="flex-1 ml-3">
-          <UIText textStyles="font-bold text-lg">
-            {categories[category].label}
-          </UIText>
+          <UIText textStyles="font-bold">{categories[category].label}</UIText>
         </View>
         <View className="items-end">
-          <UIText textStyles="text-sm font-medium">
-            SAR {amount.toFixed(2)}
-          </UIText>
-          <UIText textStyles="text-xs text-tintLight dark:text-tintDark">
-            {date}
-          </UIText>
+          <UIText variant="subHeader2">SAR {amount.toFixed(2)}</UIText>
+          <UIText variant="subHeader">{date}</UIText>
         </View>
       </TouchableOpacity>
     </Link>
