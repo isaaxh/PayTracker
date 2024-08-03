@@ -12,7 +12,8 @@ import "react-native-reanimated";
 
 /* import { useColorScheme } from "@/components/useColorScheme"; */
 import React from "react";
-import { useColorScheme } from "react-native";
+/* import { useColorScheme } from "react-native"; */
+import { useColorScheme } from "nativewind";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,7 +53,7 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
