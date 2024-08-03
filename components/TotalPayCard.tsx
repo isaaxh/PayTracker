@@ -16,7 +16,7 @@ const TotalPayCard = () => {
             <UIText alwaysDarkText={true}>Monthly Payout</UIText>
           </View>
           <View className="flex-row items-center mb-4">
-            <UIText variant="headerlg" alwaysDarkText={true}>
+            <UIText variant="headerLg" alwaysDarkText={true}>
               SAR {monthlyPayout.toFixed(2)}
             </UIText>
           </View>

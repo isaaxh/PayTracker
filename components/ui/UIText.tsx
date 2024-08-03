@@ -19,7 +19,7 @@ interface UITextProps extends TextProps, VariantProps<typeof txtStyles> {
 const textVariants = {
   variant: {
     base: ["text-base text-textLight dark:text-textDark"], // 16px
-    headerlg: ["text-4xl font-bold"], // 24px
+    headerLg: ["text-4xl font-bold"], // 24px
     header: ["text-2xl mt-4 mb-1.5"], // 24px
     header2: [""], // 20px
     header3: ["text-lg font-medium"], // 16px
