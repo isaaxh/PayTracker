@@ -20,7 +20,7 @@ const textVariants = {
   variant: {
     base: ["text-base text-textLight dark:text-textDark"], // 16px
     headerLg: ["text-4xl font-bold"], // 24px
-    header: ["text-2xl mt-4 mb-1.5"], // 24px
+    header: ["text-2xl mt-4 mb-1.5 font-bold"], // 24px
     header2: [""], // 20px
     header3: ["text-lg font-medium"], // 16px
     subHeader: ["text-xs text-tintLight dark:text-tintDark"], // 16px

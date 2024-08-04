@@ -1,12 +1,18 @@
-import { View, Text } from "react-native";
+import { Switch, View } from "react-native";
 import React from "react";
+import LoginForm from "@/components/LoginForm";
+import { useColorScheme } from "nativewind";
+import { StatusBar } from "expo-status-bar";
 
-/* import LoginForm from "@/components/LoginForm"; */
-export const LoginScreen = () => {
+const LoginScreen = () => {
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
-    <View className="flex-1 bg-background">
-      {/* <LoginForm /> */}
-      <Text className="dark:text-white">Login Form</Text>
+    <View className="bg-bgColor dark:bg-darkBgColor flex-1 px-4 py-6">
+      <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
+      <LoginForm />
+      <Switch value={colorScheme === "dark"} onChange={toggleColorScheme} />
     </View>
   );
 };
+
+export default LoginScreen;

@@ -1,11 +1,11 @@
-import { useNavigation } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { ReactNode, useState } from "react";
-import { FIREBASE_AUTH } from "../../../firebaseConfig";
+import { FIREBASE_AUTH } from "../../firebaseConfig";
 import AuthContext from "@/contexts/AuthContext";
 import { Keyboard } from "react-native";
 
@@ -41,12 +41,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     Keyboard.dismiss();
     setLoading(true);
     try {
-      const response = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password,
-      );
-      navigate.goBack();
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      router.replace("/");
     } catch (e: any) {
       console.log(e);
       alert("login failed:" + e.message);

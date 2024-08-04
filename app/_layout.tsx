@@ -9,11 +9,9 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
-
-/* import { useColorScheme } from "@/components/useColorScheme"; */
 import React from "react";
-/* import { useColorScheme } from "react-native"; */
 import { useColorScheme } from "nativewind";
+import AuthProvider from "@/services/providers/AuthProvider";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -56,15 +54,17 @@ function RootLayoutNav() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(transactions)" />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-        <Stack.Screen name="SettingScreen" />
-        <Stack.Screen name="ProfileScreen" />
-      </Stack>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="(auth)" />
+          <Stack.Screen name="(transactions)" />
+          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+          <Stack.Screen name="SettingScreen" />
+          <Stack.Screen name="ProfileScreen" />
+        </Stack>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }

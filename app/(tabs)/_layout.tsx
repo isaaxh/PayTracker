@@ -2,12 +2,10 @@ import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import { Pressable } from "react-native";
-
+import TabBarIcon from "@/components/TabBarIcon";
 import Colors from "@/constants/Colors";
-/* import { useColorScheme } from "@/components/useColorScheme"; */
 import { useColorScheme } from "nativewind";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
-import TabBarIcon from "@/components/TabBarIcon";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 

@@ -6,11 +6,12 @@ import UIInput from "./ui/UIInput";
 import UIButton from "./ui/UIButton";
 import { useForm } from "react-hook-form";
 import { TLoginSchema, loginSchema } from "@/utils/types";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthContextProps } from "@/services/providers/AuthProvider";
 import { Link } from "expo-router";
 import IconCard from "./IconCard";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Seperator from "./Seperator";
 
 const LoginForm = () => {
   const { control, handleSubmit } = useForm<TLoginSchema>({
@@ -25,14 +26,9 @@ const LoginForm = () => {
 
   return (
     <>
-      <View className="top-8 left-2">
-        <NavButton variant="cancel" />
-      </View>
       <View className="mx-4 mt-6">
-        <UIText textStyles="text-left" variant="header">
-          Enter your email
-        </UIText>
-        <UIText textStyles="text-left mb-3" variant="body">
+        <UIText variant="header">Enter your email is working</UIText>
+        <UIText textStyles="text-left mb-3" variant="bodyText">
           Enter your email to log in to your account
         </UIText>
         <View className="mt-3">
@@ -51,7 +47,7 @@ const LoginForm = () => {
         </View>
 
         <View className="flex-row justify-between items-center px-1">
-          <UIText variant="body3">Remember me</UIText>
+          <UIText variant="bodyText">Remember me</UIText>
           <Link href="/" asChild>
             <UIButton
               hitSlop={5}
@@ -70,12 +66,13 @@ const LoginForm = () => {
           onPress={handleSubmit(onSubmit)}
           size="large"
           buttonStyles="mx-0 mb-3"
+          textStyles="bg-white"
           loading={loading}
         >
           Login
         </UIButton>
         <View className="flex-row items-center">
-          <UIText variant="body3">Don't have an account? </UIText>
+          <UIText variant="bodyText">Don't have an account? </UIText>
           <Link href="/" asChild>
             <UIButton
               hitSlop={5}
@@ -91,7 +88,7 @@ const LoginForm = () => {
       </View>
       <View className="flex-row justify-center items-center gap-3 px-6 mb-6">
         <View className="border-b flex-1 border-b-gray-400" />
-        <UIText variant="body3">Or login with</UIText>
+        <UIText variant="bodyText">Or login with</UIText>
         <View className="border-b flex-1 border-b-gray-400" />
       </View>
       <View className="flex-row justify-center items-center mx-4 mb-8">
