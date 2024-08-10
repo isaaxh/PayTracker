@@ -37,7 +37,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     user: null,
   });
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigation();
 
   const auth = FIREBASE_AUTH;
 
