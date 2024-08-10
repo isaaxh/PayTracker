@@ -5,11 +5,13 @@ import { FIREBASE_AUTH } from "../firebaseConfig";
 import { AuthContextProps } from "@/services/providers/AuthProvider";
 
 export const useAuth = () => {
-  const { setUser } = useContext(AuthContext) as AuthContextProps;
+  const { setAuthState } = useContext(AuthContext) as AuthContextProps;
 
   useEffect(() => {
     onAuthStateChanged(FIREBASE_AUTH, (user) => {
-      setUser(user);
+      if (user) {
+        setAuthState({ user, isAuthenticated: true });
+      }
     });
   }, []);
 

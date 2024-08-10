@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Switch, TouchableOpacity } from "react-native";
+import { StyleSheet, Switch, TouchableOpacity } from "react-native";
 import { useColorScheme } from "nativewind";
 import { Text, View } from "@/components/Themed";
 import { AuthContextProps } from "@/services/providers/AuthProvider";

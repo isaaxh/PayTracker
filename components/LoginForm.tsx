@@ -1,6 +1,5 @@
 import { View } from "react-native";
 import React from "react";
-import NavButton from "./NavButton";
 import UIText from "./ui/UIText";
 import UIInput from "./ui/UIInput";
 import UIButton from "./ui/UIButton";
@@ -26,7 +25,7 @@ const LoginForm = () => {
   return (
     <>
       <View className="mx-4 mt-6">
-        <UIText variant="header">Enter your email is working</UIText>
+        <UIText variant="header">Enter your email</UIText>
         <UIText textStyles="text-left mb-3" variant="bodyText">
           Enter your email to log in to your account
         </UIText>

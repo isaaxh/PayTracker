@@ -54,22 +54,25 @@ export default function RootLayout() {
 }
 
 const StackLayout = () => {
-  const { user } = useAuth() as AuthContextProps;
+  const {
+    authState: { isAuthenticated, user },
+  } = useAuth() as AuthContextProps;
   const segments = useSegments();
   const router = useRouter();
 
   useEffect(() => {
-    console.log("rootLayout", user);
+    console.log("rootLayout isAuthenticated", isAuthenticated);
+    console.log("rootLayout user", user);
     const inAuthGroup = segments[0] === "(protected)";
 
-    if (user === null && inAuthGroup) {
+    if (isAuthenticated === null && inAuthGroup) {
       router.replace("/");
-    } else if (user) {
+    } else if (isAuthenticated) {
       router.replace(
         "/(protected)/(tabs)/HomeTab" as Href<"/(protected)/(tabs)/HomeTab">,
       );
     }
-  }, [user]);
+  }, [isAuthenticated]);
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
