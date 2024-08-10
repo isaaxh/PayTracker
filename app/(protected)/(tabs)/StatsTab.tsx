@@ -1,9 +1,12 @@
-import { StyleSheet, Switch } from "react-native";
+import { Button, StyleSheet, Switch, TouchableOpacity } from "react-native";
 import { useColorScheme } from "nativewind";
 import { Text, View } from "@/components/Themed";
+import { AuthContextProps } from "@/services/providers/AuthProvider";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function TabTwoScreen() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { logout } = useAuth() as AuthContextProps;
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>
@@ -16,6 +19,9 @@ export default function TabTwoScreen() {
         <Text className="text-black dark:text-white">Toggle Theme</Text>
         <Switch value={colorScheme === "dark"} onChange={toggleColorScheme} />
       </View>
+      <TouchableOpacity onPress={logout}>
+        <Text>Log out</Text>
+      </TouchableOpacity>
     </View>
   );
 }

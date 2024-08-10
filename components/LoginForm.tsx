@@ -11,7 +11,6 @@ import { AuthContextProps } from "@/services/providers/AuthProvider";
 import { Link } from "expo-router";
 import IconCard from "./IconCard";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Seperator from "./Seperator";
 
 const LoginForm = () => {
   const { control, handleSubmit } = useForm<TLoginSchema>({

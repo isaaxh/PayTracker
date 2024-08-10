@@ -5,13 +5,16 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Href, Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import React from "react";
 import { useColorScheme } from "nativewind";
-import AuthProvider from "@/services/providers/AuthProvider";
+import AuthProvider, {
+  AuthContextProps,
+} from "@/services/providers/AuthProvider";
+import { useAuth } from "@/hooks/useAuth";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -50,20 +53,39 @@ export default function RootLayout() {
   return <RootLayoutNav />;
 }
 
+const StackLayout = () => {
+  const { user } = useAuth() as AuthContextProps;
+  const segments = useSegments();
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log("rootLayout", user);
+    const inAuthGroup = segments[0] === "(protected)";
+
+    if (user === null && inAuthGroup) {
+      router.replace("/");
+    } else if (user) {
+      router.replace(
+        "/(protected)/(tabs)/HomeTab" as Href<"/(protected)/(tabs)/HomeTab">,
+      );
+    }
+  }, [user]);
+
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(protected)" />
+      <Stack.Screen name="SignupScreen" />
+    </Stack>
+  );
+};
+
 function RootLayoutNav() {
   const { colorScheme } = useColorScheme();
 
   return (
     <AuthProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="(auth)" />
-          <Stack.Screen name="(transactions)" />
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-          <Stack.Screen name="SettingScreen" />
-          <Stack.Screen name="ProfileScreen" />
-        </Stack>
+        <StackLayout />
       </ThemeProvider>
     </AuthProvider>
   );

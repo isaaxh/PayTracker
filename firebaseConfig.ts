@@ -2,10 +2,11 @@ import { initializeApp } from "firebase/app";
 import { getReactNativePersistence, initializeAuth } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getFirestore } from "firebase/firestore";
+import { FIREBASE_API_KEY } from "@env";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBWSGrNe54OKX4rLKBcUH22VwNXH9UFo4U",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "paytracker-3887d.firebaseapp.com",
   projectId: "paytracker-3887d",
   storageBucket: "paytracker-3887d.appspot.com",

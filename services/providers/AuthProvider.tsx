@@ -42,7 +42,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
-      router.replace("/");
+
+      /* router.replace("/(protected)"); */
     } catch (e: any) {
       console.log(e);
       alert("login failed:" + e.message);

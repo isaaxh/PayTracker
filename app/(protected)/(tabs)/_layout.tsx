@@ -6,12 +6,18 @@ import TabBarIcon from "@/components/TabBarIcon";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "nativewind";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
+import { useAuth } from "@/hooks/useAuth";
+import { AuthContextProps } from "@/services/providers/AuthProvider";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { user } = useAuth() as AuthContextProps;
 
+  console.log(user?.email);
+
+  console.log(user);
   return (
     <Tabs
       screenOptions={{
