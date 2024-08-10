@@ -3,22 +3,26 @@ import React, { forwardRef, useState } from "react";
 import { cn } from "@/utils/cn";
 import { Control, Controller, FieldValues } from "react-hook-form";
 import UIText from "./UIText";
-import { TLoginSchema } from "@/utils/types";
+import { TLoginSchema, TSignupSchema } from "@/utils/types";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "nativewind";
 
 type UIInputProps = {
-  name: "email" | "password";
-  control: Control<TLoginSchema>;
+  name: "name" | "email" | "password" | "confirmPassword";
+  control: FormProps;
   isPassword?: boolean;
   containerStyles?: string;
   buttonStyles?: string;
   textStyles?: string;
 } & TextInputProps;
 
+type FormProps<T extends FieldValues> = {
+  control: Control<T>;
+};
+
 const UIInput = forwardRef<TextInput, UIInputProps>(
   (props: UIInputProps, forwardedRef) => {
-    const { name, control, isPassword } = props;
+    const { name, control } = props;
     const [hidePass, setHidePass] = useState(false);
     const [inputStyles, setInputStyles] = useState("border-gray-200");
     const { colorScheme } = useColorScheme();
@@ -42,7 +46,6 @@ const UIInput = forwardRef<TextInput, UIInputProps>(
             <View
               className={cn(
                 "border rounded-2xl px-3 py-2 mb-1 flex-row items-center justify-between",
-                /* inputStyles, */
                 error
                   ? "border-red-400 bg-red-100"
                   : "border-gray-200 dark:border-zinc-700 dark:bg-darkBgSecondaryColor",
@@ -51,7 +54,6 @@ const UIInput = forwardRef<TextInput, UIInputProps>(
               <TextInput
                 ref={forwardedRef}
                 className="flex-1 text-textLight dark:text-textDark"
-                /* style={{ color: error && Colors.light.text }} */
                 autoCapitalize="none"
                 value={value}
                 onChangeText={onChange}

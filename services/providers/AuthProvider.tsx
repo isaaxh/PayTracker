@@ -3,11 +3,13 @@ import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { ReactNode, useState } from "react";
 import { FIREBASE_AUTH } from "../../firebaseConfig";
 import AuthContext from "@/contexts/AuthContext";
 import { Keyboard } from "react-native";
+import { TLoginSchema, TSignupSchema } from "@/utils/types";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -18,14 +20,9 @@ export type AuthContextProps = {
   setAuthState: React.Dispatch<React.SetStateAction<TAuthState>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  signup: (data: AuthData) => void;
-  login: (data: AuthData) => void;
+  signup: (data: TSignupSchema) => void;
+  login: (data: TLoginSchema) => void;
   logout: () => void;
-};
-
-type AuthData = {
-  email: string;
-  password: string;
 };
 
 type TAuthState = {
@@ -44,7 +41,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const auth = FIREBASE_AUTH;
 
-  const login = async (data: AuthData) => {
+  const login = async (data: TLoginSchema) => {
     Keyboard.dismiss();
     setLoading(true);
     try {
@@ -57,12 +54,18 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-  const signup = async (data: AuthData) => {
+  const signup = async (data: TSignupSchema) => {
     Keyboard.dismiss();
     setLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, data.email, data.password);
-      navigate.goBack();
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password,
+      );
+      updateProfile(res.user, {
+        displayName: data.name,
+      });
     } catch (e: any) {
       console.log(e);
       alert("Registration failed:" + e.message);

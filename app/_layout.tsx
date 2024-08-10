@@ -61,8 +61,7 @@ const StackLayout = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("rootLayout isAuthenticated", isAuthenticated);
-    console.log("rootLayout user", user);
+    console.log(user);
     const inAuthGroup = segments[0] === "(protected)";
 
     if (isAuthenticated === null && inAuthGroup) {
