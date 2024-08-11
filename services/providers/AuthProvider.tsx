@@ -1,4 +1,3 @@
-import { useNavigation } from "expo-router";
 import {
   User,
   createUserWithEmailAndPassword,
@@ -10,6 +9,9 @@ import { FIREBASE_AUTH } from "../../firebaseConfig";
 import AuthContext from "@/contexts/AuthContext";
 import { Keyboard } from "react-native";
 import { TLoginSchema, TSignupSchema } from "@/utils/types";
+import { GlobalContextProps } from "./GlobalProvider";
+import { useGlobal } from "@/hooks/useGlobal";
+import { getFormattedDate } from "@/utils/getFormattedDate";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -38,6 +40,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   });
   const [loading, setLoading] = useState(false);
 
+  const { addUserDocument, retrieveDocument, retrieveAllDocuments } =
+    useGlobal() as GlobalContextProps;
+
   const auth = FIREBASE_AUTH;
 
   const login = async (data: TLoginSchema) => {
@@ -57,13 +62,18 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     Keyboard.dismiss();
     setLoading(true);
     try {
-      const res = await createUserWithEmailAndPassword(
+      const response = await createUserWithEmailAndPassword(
         auth,
         data.email,
         data.password,
       );
-      updateProfile(res.user, {
+      updateProfile(response.user, {
         displayName: data.name,
+      });
+      addUserDocument({
+        data,
+        uid: response.user.uid,
+        date: getFormattedDate().toString(),
       });
     } catch (e: any) {
       console.log(e);

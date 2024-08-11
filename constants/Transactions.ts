@@ -60,3 +60,20 @@ export const transactions = [
     date: "22/07/2024",
   },
 ];
+
+type user = {
+  uid: string;
+  displayName: string;
+  email: string;
+  totalAmount: number;
+  totalMonthly: number;
+  transactions: [
+    {
+      id: string;
+      amount: number;
+      type: "income" | "expense";
+      category: "gas" | "food" | "recharge" | "entertainment" | "miscellaneous";
+      date: string;
+    },
+  ];
+};

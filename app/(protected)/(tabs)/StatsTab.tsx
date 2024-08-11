@@ -3,10 +3,16 @@ import { useColorScheme } from "nativewind";
 import { Text, View } from "@/components/Themed";
 import { AuthContextProps } from "@/services/providers/AuthProvider";
 import { useAuth } from "@/hooks/useAuth";
+import { GlobalContextProps } from "@/services/providers/GlobalProvider";
+import { useGlobal } from "@/hooks/useGlobal";
+import { getFormattedDate } from "@/utils/getFormattedDate";
 
 export default function TabTwoScreen() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const { logout } = useAuth() as AuthContextProps;
+  const { addUserDocument, retrieveDocument, retrieveAllDocuments } =
+    useGlobal() as GlobalContextProps;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>
@@ -19,6 +25,19 @@ export default function TabTwoScreen() {
         <Text className="text-black dark:text-white">Toggle Theme</Text>
         <Switch value={colorScheme === "dark"} onChange={toggleColorScheme} />
       </View>
+      <TouchableOpacity
+        onPress={() => {
+          console.log(getFormattedDate());
+        }}
+      >
+        <Text>Get date</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={retrieveDocument}>
+        <Text>retrieve doc</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={retrieveAllDocuments}>
+        <Text>retrieve all doc</Text>
+      </TouchableOpacity>
       <TouchableOpacity onPress={logout}>
         <Text>Log out</Text>
       </TouchableOpacity>

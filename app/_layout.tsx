@@ -15,6 +15,7 @@ import AuthProvider, {
   AuthContextProps,
 } from "@/services/providers/AuthProvider";
 import { useAuth } from "@/hooks/useAuth";
+import GlobalProvider from "@/services/providers/GlobalProvider";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -55,13 +56,12 @@ export default function RootLayout() {
 
 const StackLayout = () => {
   const {
-    authState: { isAuthenticated, user },
+    authState: { isAuthenticated },
   } = useAuth() as AuthContextProps;
   const segments = useSegments();
   const router = useRouter();
 
   useEffect(() => {
-    console.log(user);
     const inAuthGroup = segments[0] === "(protected)";
 
     if (isAuthenticated === null && inAuthGroup) {
@@ -85,10 +85,14 @@ function RootLayoutNav() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <AuthProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <StackLayout />
-      </ThemeProvider>
-    </AuthProvider>
+    <GlobalProvider>
+      <AuthProvider>
+        <ThemeProvider
+          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+        >
+          <StackLayout />
+        </ThemeProvider>
+      </AuthProvider>
+    </GlobalProvider>
   );
 }

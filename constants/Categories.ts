@@ -1,6 +1,4 @@
-export type CategoriesType = typeof categories;
-export type CategoryType = typeof categories.gas;
-export type CategoryLabelType = keyof typeof categories;
+import { z } from "zod";
 
 export const categories = {
   gas: {
@@ -29,3 +27,12 @@ export const categories = {
     iconName: "element3",
   },
 };
+
+const categoryKeys = Object.keys(categories) as Array<keyof typeof categories>;
+export const categoryEnum = z.enum(
+  categoryKeys as [keyof typeof categories, ...Array<keyof typeof categories>],
+);
+
+export type CategoriesType = typeof categories;
+export type CategoryType = typeof categories.gas;
+export type CategoryLabelType = z.infer<typeof categoryEnum>;
