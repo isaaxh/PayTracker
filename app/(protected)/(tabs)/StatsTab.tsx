@@ -6,12 +6,22 @@ import { useAuth } from "@/hooks/useAuth";
 import { GlobalContextProps } from "@/services/providers/GlobalProvider";
 import { useGlobal } from "@/hooks/useGlobal";
 import { getFormattedDate } from "@/utils/getFormattedDate";
+import { useEffect } from "react";
+import { useFetchUserData } from "@/hooks/useFetchUserData";
 
 export default function TabTwoScreen() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
-  const { logout } = useAuth() as AuthContextProps;
+  const {
+    authState: { user },
+    logout,
+  } = useAuth() as AuthContextProps;
   const { addUserDocument, retrieveDocument, retrieveAllDocuments } =
     useGlobal() as GlobalContextProps;
+
+  if (user) {
+    const userData = useFetchUserData(user?.uid);
+    console.log("user data: ", userData);
+  }
 
   return (
     <View style={styles.container}>
@@ -32,9 +42,9 @@ export default function TabTwoScreen() {
       >
         <Text>Get date</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={retrieveDocument}>
-        <Text>retrieve doc</Text>
-      </TouchableOpacity>
+      {/* <TouchableOpacity onPress={retrieveDocument}> */}
+      {/*   <Text>retrieve doc</Text> */}
+      {/* </TouchableOpacity> */}
       <TouchableOpacity onPress={retrieveAllDocuments}>
         <Text>retrieve all doc</Text>
       </TouchableOpacity>

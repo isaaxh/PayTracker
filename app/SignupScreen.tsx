@@ -5,7 +5,6 @@ import { View } from "react-native";
 const SignupScreen = () => {
   return (
     <View className="bg-bgColor dark:bg-darkBgColor flex-1 px-4 py-6">
-      {/* <StatusBar style={colorScheme === "dark" ? "light" : "dark"} /> */}
       <SignupForm />
     </View>
   );

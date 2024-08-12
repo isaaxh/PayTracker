@@ -4,7 +4,7 @@ import UIText from "./ui/UIText";
 import UIInput from "./ui/UIInput";
 import UIButton from "./ui/UIButton";
 import { useForm } from "react-hook-form";
-import { TSignupSchema, formType, signupSchema } from "@/utils/types";
+import { TSignupSchema, signupSchema } from "@/utils/types";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthContextProps } from "@/services/providers/AuthProvider";
 import { Link } from "expo-router";
