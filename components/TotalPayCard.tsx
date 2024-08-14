@@ -4,10 +4,15 @@ import UIText from "./ui/UIText";
 import LinearGradView from "./LinearGradView";
 import SummaryComponent from "./SummaryComponent";
 import { Link } from "expo-router";
-import { useFetchUserData } from "@/hooks/useFetchUserData";
+/* import { useGlobal } from "@/hooks/useGlobal"; */
+/* import { GlobalContextProps } from "@/services/providers/GlobalProvider"; */
+/* import { useFetchUserData } from "@/hooks/useFetchUserData"; */
+
+const totalMonthly = 4800;
 
 const TotalPayCard = () => {
-  const userData = useFetchUserData();
+  /* const userData = useFetchUserData(); */
+  /* console.log(userData); */
   return (
     <LinearGradView>
       <Link href="/StatsTab" asChild>
@@ -17,7 +22,7 @@ const TotalPayCard = () => {
           </View>
           <View className="flex-row items-center mb-4">
             <UIText variant="headerLg" alwaysDarkText={true}>
-              SAR {userData?.totalMonthly.toFixed(2)}
+              SAR {totalMonthly.toFixed(2)}
             </UIText>
           </View>
           <View className="flex-row w-full px-4 justify-between">
